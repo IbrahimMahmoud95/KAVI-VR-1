@@ -25,18 +25,9 @@
  "minWidth": 20,
  "layout": "absolute",
  "definitions": [{
- "initialPosition": {
-  "class": "RotationalCameraPosition",
-  "hfov": 120,
-  "yaw": 0,
-  "pitch": 0
- },
- "automaticRotationSpeed": 10,
- "automaticZoomSpeed": 10,
- "manualZoomSpeed": 1,
- "class": "RotationalCamera",
- "id": "media_03037600_0933_C6C3_4184_1ED1AE3A3C40_camera",
- "manualRotationSpeed": 1800
+ "class": "PhotoAlbumPlayer",
+ "viewerArea": "this.MainViewer",
+ "id": "MainViewerPhotoAlbumPlayer"
 },
 {
  "label": "Cam 01 -360",
@@ -86,9 +77,64 @@
  ]
 },
 {
- "class": "PhotoAlbumPlayer",
- "viewerArea": "this.MainViewer",
- "id": "MainViewerPhotoAlbumPlayer"
+ "initialPosition": {
+  "class": "RotationalCameraPosition",
+  "hfov": 120,
+  "yaw": -179.84,
+  "pitch": 0
+ },
+ "automaticRotationSpeed": 10,
+ "automaticZoomSpeed": 10,
+ "manualZoomSpeed": 1,
+ "class": "RotationalCamera",
+ "id": "camera_4A22EE0E_4712_FB5D_41CB_7DBB915F9666",
+ "manualRotationSpeed": 1800
+},
+{
+ "class": "PlayList",
+ "items": [
+  {
+   "class": "PhotoAlbumPlayListItem",
+   "media": "this.album_5AA14455_4210_A629_41CD_96BA5B4AA6DD",
+   "start": "this.pauseGlobalAudiosWhilePlayItem(this.mainPlayList, 0)",
+   "begin": "this.setEndToItemIndex(this.mainPlayList, 0, 1)",
+   "player": "this.MainViewerPhotoAlbumPlayer"
+  },
+  {
+   "class": "Video360PlayListItem",
+   "media": "this.media_020A80E7_0932_3B4D_4191_D26C40D5272D",
+   "start": "this.MainViewerPanoramaPlayer.set('displayPlaybackBar', true); this.changeBackgroundWhilePlay(this.mainPlayList, 1, '#000000'); this.pauseGlobalAudiosWhilePlayItem(this.mainPlayList, 1)",
+   "begin": "this.fixTogglePlayPauseButton(this.MainViewerPanoramaPlayer)",
+   "player": "this.MainViewerPanoramaPlayer",
+   "camera": "this.media_020A80E7_0932_3B4D_4191_D26C40D5272D_camera"
+  },
+  {
+   "class": "Video360PlayListItem",
+   "media": "this.media_03503498_0933_DBC3_41A0_B7620082EE8E",
+   "start": "this.MainViewerPanoramaPlayer.set('displayPlaybackBar', true); this.changeBackgroundWhilePlay(this.mainPlayList, 2, '#000000'); this.pauseGlobalAudiosWhilePlayItem(this.mainPlayList, 2)",
+   "begin": "this.fixTogglePlayPauseButton(this.MainViewerPanoramaPlayer)",
+   "player": "this.MainViewerPanoramaPlayer",
+   "camera": "this.media_03503498_0933_DBC3_41A0_B7620082EE8E_camera"
+  },
+  {
+   "class": "Video360PlayListItem",
+   "media": "this.media_03041686_0933_C7CF_4187_C957A6334573",
+   "start": "this.MainViewerPanoramaPlayer.set('displayPlaybackBar', true); this.changeBackgroundWhilePlay(this.mainPlayList, 3, '#000000'); this.pauseGlobalAudiosWhilePlayItem(this.mainPlayList, 3)",
+   "begin": "this.fixTogglePlayPauseButton(this.MainViewerPanoramaPlayer)",
+   "player": "this.MainViewerPanoramaPlayer",
+   "camera": "this.media_03041686_0933_C7CF_4187_C957A6334573_camera"
+  },
+  {
+   "class": "Video360PlayListItem",
+   "end": "this.trigger('tourEnded')",
+   "start": "this.MainViewerPanoramaPlayer.set('displayPlaybackBar', true); this.changeBackgroundWhilePlay(this.mainPlayList, 4, '#000000'); this.pauseGlobalAudiosWhilePlayItem(this.mainPlayList, 4)",
+   "begin": "this.fixTogglePlayPauseButton(this.MainViewerPanoramaPlayer)",
+   "player": "this.MainViewerPanoramaPlayer",
+   "media": "this.media_03037600_0933_C6C3_4184_1ED1AE3A3C40",
+   "camera": "this.media_03037600_0933_C6C3_4184_1ED1AE3A3C40_camera"
+  }
+ ],
+ "id": "mainPlayList"
 },
 {
  "initialPosition": {
@@ -119,7 +165,7 @@
   ],
   "class": "ImageResource"
  },
- "duration": 3000,
+ "duration": 1000,
  "height": 1275
 },
 {
@@ -175,6 +221,27 @@
  ]
 },
 {
+ "initialPosition": {
+  "class": "RotationalCameraPosition",
+  "hfov": 120,
+  "yaw": 0,
+  "pitch": 0
+ },
+ "automaticRotationSpeed": 10,
+ "automaticZoomSpeed": 10,
+ "manualZoomSpeed": 1,
+ "class": "RotationalCamera",
+ "id": "media_03037600_0933_C6C3_4184_1ED1AE3A3C40_camera",
+ "manualRotationSpeed": 1800
+},
+{
+ "thumbnailUrl": "media/album_5AA14455_4210_A629_41CD_96BA5B4AA6DD_t.png",
+ "label": "Photo Album 1",
+ "id": "album_5AA14455_4210_A629_41CD_96BA5B4AA6DD",
+ "class": "PhotoAlbum",
+ "playList": "this.album_5AA14455_4210_A629_41CD_96BA5B4AA6DD_AlbumPlayList"
+},
+{
  "viewerArea": "this.MainViewer",
  "gyroscopeEnabled": true,
  "displayPlaybackBar": true,
@@ -185,70 +252,17 @@
  "mouseControlMode": "drag_rotation"
 },
 {
- "thumbnailUrl": "media/album_5AA14455_4210_A629_41CD_96BA5B4AA6DD_t.png",
- "label": "Photo Album 1",
- "id": "album_5AA14455_4210_A629_41CD_96BA5B4AA6DD",
- "class": "PhotoAlbum",
- "playList": "this.album_5AA14455_4210_A629_41CD_96BA5B4AA6DD_AlbumPlayList"
-},
-{
- "class": "PlayList",
- "items": [
-  {
-   "class": "PhotoAlbumPlayListItem",
-   "media": "this.album_5AA14455_4210_A629_41CD_96BA5B4AA6DD",
-   "start": "this.pauseGlobalAudiosWhilePlayItem(this.mainPlayList, 0)",
-   "begin": "this.setEndToItemIndex(this.mainPlayList, 0, 1)",
-   "player": "this.MainViewerPhotoAlbumPlayer"
-  },
-  {
-   "class": "Video360PlayListItem",
-   "media": "this.media_020A80E7_0932_3B4D_4191_D26C40D5272D",
-   "start": "this.MainViewerPanoramaPlayer.set('displayPlaybackBar', true); this.changeBackgroundWhilePlay(this.mainPlayList, 1, '#000000'); this.pauseGlobalAudiosWhilePlayItem(this.mainPlayList, 1)",
-   "begin": "this.fixTogglePlayPauseButton(this.MainViewerPanoramaPlayer)",
-   "player": "this.MainViewerPanoramaPlayer",
-   "camera": "this.media_020A80E7_0932_3B4D_4191_D26C40D5272D_camera"
-  },
-  {
-   "class": "Video360PlayListItem",
-   "media": "this.media_03503498_0933_DBC3_41A0_B7620082EE8E",
-   "start": "this.MainViewerPanoramaPlayer.set('displayPlaybackBar', true); this.changeBackgroundWhilePlay(this.mainPlayList, 2, '#000000'); this.pauseGlobalAudiosWhilePlayItem(this.mainPlayList, 2)",
-   "begin": "this.fixTogglePlayPauseButton(this.MainViewerPanoramaPlayer)",
-   "player": "this.MainViewerPanoramaPlayer",
-   "camera": "this.media_03503498_0933_DBC3_41A0_B7620082EE8E_camera"
-  },
-  {
-   "class": "Video360PlayListItem",
-   "media": "this.media_03041686_0933_C7CF_4187_C957A6334573",
-   "start": "this.MainViewerPanoramaPlayer.set('displayPlaybackBar', true); this.changeBackgroundWhilePlay(this.mainPlayList, 3, '#000000'); this.pauseGlobalAudiosWhilePlayItem(this.mainPlayList, 3)",
-   "begin": "this.fixTogglePlayPauseButton(this.MainViewerPanoramaPlayer)",
-   "player": "this.MainViewerPanoramaPlayer",
-   "camera": "this.media_03041686_0933_C7CF_4187_C957A6334573_camera"
-  },
-  {
-   "class": "Video360PlayListItem",
-   "end": "this.trigger('tourEnded')",
-   "start": "this.MainViewerPanoramaPlayer.set('displayPlaybackBar', true); this.changeBackgroundWhilePlay(this.mainPlayList, 4, '#000000'); this.pauseGlobalAudiosWhilePlayItem(this.mainPlayList, 4)",
-   "begin": "this.fixTogglePlayPauseButton(this.MainViewerPanoramaPlayer)",
-   "player": "this.MainViewerPanoramaPlayer",
-   "media": "this.media_03037600_0933_C6C3_4184_1ED1AE3A3C40",
-   "camera": "this.media_03037600_0933_C6C3_4184_1ED1AE3A3C40_camera"
-  }
- ],
- "id": "mainPlayList"
-},
-{
  "initialPosition": {
   "class": "RotationalCameraPosition",
   "hfov": 120,
-  "yaw": -179.84,
+  "yaw": 3.62,
   "pitch": 0
  },
  "automaticRotationSpeed": 10,
  "automaticZoomSpeed": 10,
  "manualZoomSpeed": 1,
  "class": "RotationalCamera",
- "id": "camera_494F1CCD_4731_18DE_418C_F686B82F2BBA",
+ "id": "camera_4A295E04_4712_FB4D_41CB_99C13173BD69",
  "manualRotationSpeed": 1800
 },
 {
@@ -301,18 +315,22 @@
  ]
 },
 {
- "initialPosition": {
-  "class": "RotationalCameraPosition",
-  "hfov": 120,
-  "yaw": 3.62,
-  "pitch": 0
+ "class": "Photo",
+ "label": "xxxx",
+ "id": "photo_5B9E3656_4277_E22B_41B6_67F431C62416",
+ "thumbnailUrl": "media/photo_5B9E3656_4277_E22B_41B6_67F431C62416_t.jpg",
+ "width": 4000,
+ "image": {
+  "levels": [
+   {
+    "url": "media/photo_5B9E3656_4277_E22B_41B6_67F431C62416.jpg",
+    "class": "ImageResourceLevel"
+   }
+  ],
+  "class": "ImageResource"
  },
- "automaticRotationSpeed": 10,
- "automaticZoomSpeed": 10,
- "manualZoomSpeed": 1,
- "class": "RotationalCamera",
- "id": "camera_49479CB8_4731_1F46_41A2_BAA22AA638C4",
- "manualRotationSpeed": 1800
+ "duration": 100,
+ "height": 2250
 },
 {
  "label": "Cam 04-360",
@@ -357,24 +375,6 @@
    "height": 1584
   }
  ]
-},
-{
- "class": "Photo",
- "label": "xxxx",
- "id": "photo_5B9E3656_4277_E22B_41B6_67F431C62416",
- "thumbnailUrl": "media/photo_5B9E3656_4277_E22B_41B6_67F431C62416_t.jpg",
- "width": 4000,
- "image": {
-  "levels": [
-   {
-    "url": "media/photo_5B9E3656_4277_E22B_41B6_67F431C62416.jpg",
-    "class": "ImageResourceLevel"
-   }
-  ],
-  "class": "ImageResource"
- },
- "duration": 100,
- "height": 2250
 },
 {
  "initialPosition": {
@@ -450,7 +450,7 @@
  "playbackBarHeadShadow": true,
  "shadow": false,
  "playbackBarHeadBackgroundColorDirection": "vertical",
- "progressBackgroundOpacity": 1,
+ "progressBackgroundOpacity": 0,
  "playbackBarProgressBackgroundColor": [
   "#3399FF"
  ],
@@ -468,7 +468,7 @@
  "progressBorderSize": 0,
  "transitionMode": "blending",
  "playbackBarHeadShadowHorizontalLength": 0,
- "progressBarOpacity": 1,
+ "progressBarOpacity": 0,
  "toolTipBorderRadius": 3,
  "borderRadius": 0,
  "progressBorderRadius": 0,
@@ -561,7 +561,7 @@
  "areas": [
   {
    "class": "HotspotPanoramaOverlayArea",
-   "click": "this.startPanoramaWithCamera(this.media_03503498_0933_DBC3_41A0_B7620082EE8E, this.camera_49479CB8_4731_1F46_41A2_BAA22AA638C4); this.mainPlayList.set('selectedIndex', 2); this.MainViewerPanoramaPlayer.play()",
+   "click": "this.startPanoramaWithCamera(this.media_03503498_0933_DBC3_41A0_B7620082EE8E, this.camera_4A295E04_4712_FB4D_41CB_99C13173BD69); this.mainPlayList.set('selectedIndex', 2); this.MainViewerPanoramaPlayer.play()",
    "mapColor": "#FF0000"
   }
  ],
@@ -693,7 +693,7 @@
  "areas": [
   {
    "class": "HotspotPanoramaOverlayArea",
-   "click": "this.startPanoramaWithCamera(this.media_020A80E7_0932_3B4D_4191_D26C40D5272D, this.camera_494F1CCD_4731_18DE_418C_F686B82F2BBA); this.mainPlayList.set('selectedIndex', 1); this.MainViewerPanoramaPlayer.play()",
+   "click": "this.startPanoramaWithCamera(this.media_020A80E7_0932_3B4D_4191_D26C40D5272D, this.camera_4A22EE0E_4712_FB5D_41CB_7DBB915F9666); this.mainPlayList.set('selectedIndex', 1); this.MainViewerPanoramaPlayer.play()",
    "mapColor": "#FF0000"
   }
  ],
@@ -731,7 +731,7 @@
    "class": "PhotoPlayListItem",
    "media": "this.photo_4A773F16_471F_7F3A_41B4_A1245AC27B11",
    "camera": {
-    "duration": 3000,
+    "duration": 1000,
     "initialPosition": {
      "class": "PhotoCameraPosition",
      "x": "0.50",
